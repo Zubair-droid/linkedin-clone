@@ -1,13 +1,43 @@
+import {useState} from "react";
 import styled from "styled-components";
 import PostModal from "./PostModal"
+import {connect} from "react-redux";
 
 const Main = (props) => {
+  const [showModal, setShowModal] = useState("close");
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    if(e.target !== e.currentTarget){
+      return;
+    }
+    
+    switch(showModal){
+      case "open":
+        setShowModal("close");
+        break;
+      case "close":
+        setShowModal("open");
+        break;
+      default:
+        setShowModal("close");
+        break;
+     }
+   }
+  
   return (
     <Container>
       <ShareBox>
+        
         <div className="user">
+        {props.user && props.user.photoURL ? (
+          // eslint-disable-next-line jsx-a11y/alt-text
+          <img src = {props.user.photURL} />
+            ) : (
           <img src="/images/user.svg" alt="" />
-          <span> Start a post</span>
+            )}
+        <button onClick = {handleClick}
+           disabled = {props.loading ? true : false} > Start a post</button>
         </div>
 
         <div className = "flex-icons">
@@ -32,7 +62,7 @@ const Main = (props) => {
         </div>
       </ShareBox>
       <div>
-      <Artice>
+      <Article>
         <SharedActor>
         <a href=" ">
           <img src="/images/user.svg" alt = "" />
@@ -52,9 +82,9 @@ const Main = (props) => {
 
         </SharedActor>
           <Description />
-            Description
+           
             <SharedImg>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkuLRnLZWr-RceEhME_IKvV9gC7SGMCzc0Cw&usqp=CAU" alt="" />
+              <img src="https://i.ytimg.com/vi/ft_DXwgUXB0/maxresdefault.jpg" alt="" />
             </SharedImg>
             <SocialCounts>
               <li>
@@ -92,9 +122,12 @@ const Main = (props) => {
                 <span>Send</span>
             </button>
             </SocialActions>
-      </Artice>
-      </div>
-      <PostModal/>
+      </Article>
+       </div>
+        <PostModal 
+        showModal = {showModal}
+        handleClick = {handleClick}
+        />
     </Container>
   );
 };
@@ -195,7 +228,7 @@ const ShareBox = styled(CommonCard)`
    }
 `;
 
-const Artice = styled(CommonCard)`
+const Article = styled(CommonCard)`
     padding: 0;
     margin: 0 8px;
     overflow: visible;
@@ -325,8 +358,14 @@ const SocialActions = styled.div`
       }
     }
   }
-  
-  
-`;
+  `;
 
-export default Main;
+const mapStateToProps = (state) => {
+  return{
+    user: state.userState.user
+  }
+}
+
+
+
+export default connect(mapStateToProps)(Main);

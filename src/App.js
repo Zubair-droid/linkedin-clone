@@ -18,22 +18,17 @@ function App(props) {
       
      <Router>
         <Switch>
-           
-           <Route exact path = "/">
-              <Login />
-           </Route>
 
-         
 
            <Route path = "/home">
                <Header />
                <Home />
            </Route>
-
-          
            
+           <Route exact path = "/">
+              <Login />
+           </Route>
 
-        
        </Switch>
     </Router>
     </div>
