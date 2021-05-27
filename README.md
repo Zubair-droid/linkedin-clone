@@ -50,4 +50,4 @@ Added the following snaps of the final deployed Website
 <img src = "https://github.com/Zubair-droid/linkedin-clone/blob/main/snaps/1.JPG" alt = "1.JPG" />
 <img src = "https://github.com/Zubair-droid/linkedin-clone/blob/main/snaps/2.JPG" alt = "2.JPG" />
 <img src = "https://github.com/Zubair-droid/linkedin-clone/blob/main/snaps/3.JPG" alt = "3.JPG" />
-<img src = "https://github.com/Zubair-droid/linkedin-clone/blob/main/snaps/4.JPG" alt = "4.JPG" />
+<img src = "https://github.com/Zubair-droid/linkedin-clone/blob/main/snaps/down.JPG" alt = "down.JPG" />
