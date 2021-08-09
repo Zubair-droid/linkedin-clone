@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+### Deployed version: <a href = "https://linkedin-clone-5d49e.firebaseapp.com/">linkedin-clone</a>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
